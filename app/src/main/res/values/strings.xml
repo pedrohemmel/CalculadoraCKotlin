@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CalculadoraCKotlin</string>
+    <string name="digite_aqui">digite aqui</string>
 </resources>
