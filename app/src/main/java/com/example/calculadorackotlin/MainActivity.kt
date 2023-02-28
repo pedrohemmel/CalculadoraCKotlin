@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -13,8 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        var txtView: TextView = findViewById(R.id.meuTxtView)
+        //Referenciando variãveis do XML
         val txtFieldValor1: EditText = findViewById(R.id.txtFieldValor1)
         val txtFieldValor2: EditText = findViewById(R.id.txtFieldValor2)
         val btnSomar: Button = findViewById(R.id.btnSomar)
@@ -23,18 +23,32 @@ class MainActivity : AppCompatActivity() {
         val btnSubtrair: Button = findViewById(R.id.btnSubtrair)
 
         btnSomar.setOnClickListener {
-            txtView.setText("${txtFieldValor1.text.toString().toInt() + txtFieldValor2.text.toString().toInt()}")
+            var resultado = txtFieldValor1.text.toString().toInt() + txtFieldValor2.text.toString().toInt()
+            this.showDialog("Resultado", "${txtFieldValor1.text.toString()} + ${txtFieldValor2.text.toString().toInt()} = ${resultado}")
         }
         btnMultiplicar.setOnClickListener {
-            txtView.setText("${txtFieldValor1.text.toString().toInt() * txtFieldValor2.text.toString().toInt()}")
+            var resultado = txtFieldValor1.text.toString().toInt() * txtFieldValor2.text.toString().toInt()
+            this.showDialog("Resultado", "${txtFieldValor1.text.toString()} * ${txtFieldValor2.text.toString().toInt()} = ${resultado}")
         }
 
         btnDividir.setOnClickListener {
-            txtView.setText("${txtFieldValor1.text.toString().toInt() / txtFieldValor2.text.toString().toInt()}")
+            var resultado = txtFieldValor1.text.toString().toInt() / txtFieldValor2.text.toString().toInt()
+            this.showDialog("Resultado", "${txtFieldValor1.text.toString()} / ${txtFieldValor2.text.toString().toInt()} = ${resultado}")
         }
 
         btnSubtrair.setOnClickListener {
-            txtView.setText("${txtFieldValor1.text.toString().toInt() - txtFieldValor2.text.toString().toInt()}")
+            var resultado = txtFieldValor1.text.toString().toInt() - txtFieldValor2.text.toString().toInt()
+            this.showDialog("Resultado", "${txtFieldValor1.text.toString()} - ${txtFieldValor2.text.toString().toInt()} = ${resultado}")
         }
+    }
+
+    //Funções aqui
+    fun showDialog(title: String, msg: String) {
+        AlertDialog.Builder(this)
+            .setTitle("${title}")
+            .setMessage("${msg}")
+            .setPositiveButton("Ok",null)
+            .create()
+            .show()
     }
 }
