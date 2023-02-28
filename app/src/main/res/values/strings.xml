@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">CalculadoraCKotlin</string>
     <string name="digite_aqui">digite aqui</string>
+    <string name="multiplicar">Multiplicar</string>
+    <string name="somar">Somar</string>
+    <string name="valor_2">Valor 2</string>
+    <string name="valor_1">Valor 1</string>
+    <string name="dividir_valor_1_dividido_por_valor_2">Dividir (valor 1 dividido por valor 2)</string>
+    <string name="subtrair_valor_1_menor_valor_2">Subtrair (valor 1 menor valor 2)</string>
 </resources>
